@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 //        Log.d("MAIN", "Activity ONCREATE")
 
     // 2. Example for ViewModel
-mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+mainViewModel = ViewModelProvider(this, MainViewModelFactory(10)).get(MainViewModel::class.java)
         txtCounter =findViewById(R.id.txtCounter)
         button = findViewById(R.id.increment)
         setText()
