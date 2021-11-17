@@ -8,16 +8,16 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtCounter"
+        android:id="@+id/txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/increment"
+        android:layout_above="@id/btn"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
         android:text="0" />
 
     <Button
-        android:id="@+id/increment"
+        android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="+"
