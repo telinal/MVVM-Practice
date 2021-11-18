@@ -6,8 +6,8 @@
 <data>
 
     <variable
-        name="mainViewModels"
-        type="com.example.mvvmpractice.MainViewModel" />
+        name="post"
+        type="com.example.mvvmpractice.Posts" />
 </data>
 
     <LinearLayout
@@ -17,32 +17,23 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@={mainViewModels.txtViewLiveDataObject}"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp" />
+       <ImageView
+           android:id="@+id/imageView"
+           android:layout_width="200dp"
+           android:layout_height="200dp"
+           android:scaleType="centerCrop"
+           imageFromUrl="@{post.url}"
+           />
 
         <TextView
-            android:id="@+id/txtView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btnUpdate"
-            android:text="@{mainViewModels.txtViewLiveData}"
-            android:layout_marginBottom="30dp"
-            android:layout_centerHorizontal="true" />
+            android:text="@{post.title}"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            tools:text="Title"/>
 
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:layout_centerInParent="true"
-            android:textSize="20sp"
-            android:onClick="@{()-> mainViewModels.updateLiveData()}"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </LinearLayout>
 </layout>

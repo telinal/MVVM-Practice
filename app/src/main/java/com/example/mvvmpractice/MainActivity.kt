@@ -19,19 +19,15 @@ import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
-lateinit var binding: ActivityMainBinding
-    lateinit var mainViewModel: MainViewModel
-
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        //setContentView(R.layout.activity_main)
 
-        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val post = Posts("Angel",
+            "https://www.thebalancesmb.com/thmb/PqO5NClEEFvJbqarIEctl9WziXM=/3437x2578/smart/filters:no_upscale()/AngelInvestor-56a8302b3df78cf7729ce41c.jpg"
+        )
 
-       binding.mainViewModels = mainViewModel
-        binding.lifecycleOwner = this
-
-
+        binding.post = post
     }
 }
