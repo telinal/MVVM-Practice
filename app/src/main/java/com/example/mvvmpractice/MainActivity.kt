@@ -1,5 +1,7 @@
 package com.example.mvvmpractice
 
+import com.example.mvvmpractice.MainViewModel
+import com.example.mvvmpractice.R
 import android.app.Activity
 import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
@@ -25,17 +27,10 @@ lateinit var binding: ActivityMainBinding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //setContentView(R.layout.activity_main)
 
-        val quoteObj = Quote("data binding second method")
-        binding.quote = quoteObj
-
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        mainViewModel.txtViewLiveData.observe(this, Observer {
-            binding.txtView.text = it
-        })
 
-        binding.btnUpdate.setOnClickListener {
-            mainViewModel.updateLiveData()
-        }
+       binding.mainViewModels = mainViewModel
+        binding.lifecycleOwner = this
 
 
     }

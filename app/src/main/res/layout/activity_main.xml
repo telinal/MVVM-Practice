@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 <data>
-<variable
-    name="quote"
-    type="com.example.mvvmpractice.Quote" />
+
+    <variable
+        name="mainViewModels"
+        type="com.example.mvvmpractice.MainViewModel" />
 </data>
 
     <LinearLayout
@@ -16,22 +17,21 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/quoteText"
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{quote.text}"
+            android:text="@={mainViewModels.txtViewLiveDataObject}"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="30dp" />
 
         <TextView
             android:id="@+id/txtView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/btnUpdate"
+            android:text="@{mainViewModels.txtViewLiveData}"
             android:layout_marginBottom="30dp"
-            android:layout_centerHorizontal="true"
-            android:text="0" />
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/btnUpdate"
@@ -40,6 +40,7 @@
             android:text="+"
             android:layout_centerInParent="true"
             android:textSize="20sp"
+            android:onClick="@{()-> mainViewModels.updateLiveData()}"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
